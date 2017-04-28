@@ -1,5 +1,6 @@
 package com.moven.service.impl;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -11,10 +12,10 @@ import com.moven.service.ProductionService;
 @Service("productionService")
 public class ProductionServiceImpl extends BaseServiceImpl implements ProductionService {
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Production> getProductionList() {
-		return genericDao.getObject(DataOperation.GET_PRODUCTION_LIST, null, List.class);
+//		return genericDao.getObject(DataOperation.GET_PRODUCTION_LIST, null, List.class);
+		return Collections.emptyList();
 	}
 
 	@Override

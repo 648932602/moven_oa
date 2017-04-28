@@ -1,5 +1,6 @@
 package com.moven.service.impl;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -28,10 +29,10 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
 		System.out.println("User add:" + user.getName());
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> getUserList() {
-		return genericDao.getObject(DataOperation.GET_USER_LIST, null, List.class);
+//		return genericDao.getObject(DataOperation.GET_USER_LIST, null, List.class);
+		return Collections.emptyList();
 	}
 	
 	
