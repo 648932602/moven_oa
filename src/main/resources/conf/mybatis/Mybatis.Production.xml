@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.namespace.Production" >
+
+  <resultMap id="BaseResultMap" type="com.model.Production" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="TYPE" property="type" jdbcType="INTEGER" />
+    <result column="BRAND" property="brand" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="IS_DEL" property="isDel" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID 		id, 
+    TYPE		type, 
+    BRAND	brand, 
+    NAME	name, 
+    IS_DEL	is_del
+  </sql>
+  
+  <select id="getProductionList" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    SELECT 
+    <include refid="Base_Column_List" />
+    FROM
+    	production
+    WHERE 
+    	IS_DEL = 0
+  </select>
+  
+  <select id="getProductionById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    SELECT 
+    <include refid="Base_Column_List" />
+    FROM
+    	production
+    WHERE 
+    	ID = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <insert id="addProduction" parameterType="com.model.Production" >
+    INSERT INTO 
+    	production
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
+      <if test="brand != null" >
+        BRAND,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="isDel != null" >
+        IS_DEL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        #{isDel,jdbcType=INTEGER},
+      </if>
+    </trim>
+    <selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+		SELECT LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+  
+  <update id="updateProduction" parameterType="com.model.Production" >
+    UPDATE 
+    	production
+    <set >
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="brand != null" >
+        BRAND = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null" >
+        IS_DEL = #{isDel,jdbcType=INTEGER},
+      </if>
+    </set>
+    WHERE
+    	ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <update id="deleteProduction" parameterType="java.lang.Integer" >
+    UPDATE 
+    	production
+    SET
+        IS_DEL = 1
+    WHERE
+    	ID = #{id,jdbcType=INTEGER}
+  </update>
+  
+</mapper>

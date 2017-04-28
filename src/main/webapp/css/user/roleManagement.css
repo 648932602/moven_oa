@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+#roleFrame{
+	width: 100%;
+	height: 300px;
+}
+#roleList{
+	background-color: yellow;
+	width: 30%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+}
+#roleList ul{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#roleList ul li{
+	background-color: red;
+	width: 100%;
+	height: 25px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+#rootList{
+	background-color: green;
+	width: 70%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+}

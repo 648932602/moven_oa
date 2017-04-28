@@ -1,0 +1,35 @@
+@CHARSET "UTF-8";
+
+form input:focus {
+  background-color: white;
+  width: 170px;
+  color: #53e3a6;
+}
+form input {
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+
+.loginText{
+	width: 160px;
+	height: 15px;
+	margin: 5px;
+}
+.loginBtn{
+	width: 60px;
+	height: 25px;
+	margin-top: 12px;
+	margin-left: 12%;
+	margin-right: 10%;
+}
+#loginFrame{
+	padding: 0px;
+	margin-left: 40%;
+	margin-top: 150px;
+}
+#loginPanel{
+	padding-top: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 20px;
+}

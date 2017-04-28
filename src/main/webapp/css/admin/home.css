@@ -1,0 +1,22 @@
+@CHARSET "UTF-8";
+/* 框架样式 */
+#homeFrame{
+	width: 1000px;
+	height: 600px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#top{
+	width: 100%;
+	height: 20%;
+/* 	background-color: blue; */
+}
+#left{
+	width: 20%;
+	height: 50%; 
+}
+#middle{
+	width: 60%;
+	height: 50%; 
+}

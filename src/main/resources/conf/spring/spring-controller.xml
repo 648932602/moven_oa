@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+	<!-- 自动扫描 -->
+	<context:component-scan base-package="com.controller" />
+
+	<!-- 编码方式配置 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes">
+						<list>
+							<value>text/plain;charset=UTF-8	</value>
+						</list>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 视图层 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+	<!-- ===================================================== -->
+	<!-- FreeMarker解析器 -->
+	<!-- ===================================================== -->
+<!-- 	<bean id="freemarkerResolver" -->
+<!-- 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver"> -->
+<!-- 		<property name="order" value="1" /> -->
+<!-- 		<property name="suffix" value=".ftl" /> -->
+<!-- 		<property name="contentType" value="text/html;charset=utf-8" /> -->
+<!-- 		<property name="viewClass"> -->
+<!-- 			<value>org.springframework.web.servlet.view.freemarker.FreeMarkerView</value> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	<!-- ===================================================== -->
+	<!-- FreeMarker解析器参数配置 -->
+	<!-- ===================================================== -->
+<!-- 	<bean id="freemarkerConfig" -->
+<!-- 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"> -->
+<!-- 		<property name="templateLoaderPath"> -->
+<!-- 			<value>/WEB-INF/jsp/</value> -->
+<!-- 		</property> -->
+		<!-- 设置FreeMarker环境属性 -->
+<!-- 		<property name="freemarkerSettings"> -->
+<!-- 			<props> -->
+				<!-- 刷新模板的周期，单位为秒 -->
+<!-- 				<prop key="template_update_delay">5</prop> -->
+				<!-- 模板的编码格式 -->
+<!-- 				<prop key="default_encoding">UTF-8</prop> -->
+				<!-- 本地化设置 -->
+<!-- 				<prop key="locale">UTF-8</prop> -->
+<!-- 				<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop> -->
+<!-- 				<prop key="time_format">HH:mm:ss</prop> -->
+<!-- 				<prop key="number_format">0.####</prop> -->
+<!-- 				<prop key="boolean_format">true,false</prop> -->
+				<!-- 去掉多余空格 -->
+<!-- 				<prop key="whitespace_stripping">true</prop> -->
+				<!-- 设置尖括号语法和方括号语法,默认是自动检测语法
+					自动 AUTO_DETECT_TAG_SYNTAX 
+					尖括号 ANGLE_BRACKET_TAG_SYNTAX 
+					方括号 SQUARE_BRACKET_TAG_SYNTAX -->
+<!-- 				<prop key="tag_syntax">auto_detect</prop> -->
+				<!-- URL编码方式 -->
+<!-- 				<prop key="url_escaping_charset">UTF-8</prop> -->
+<!-- 			</props> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+
+</beans>
