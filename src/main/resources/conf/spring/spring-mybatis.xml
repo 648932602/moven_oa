@@ -70,7 +70,7 @@
 		</property>
 	</bean>
 
-	<bean id="genericDao" class="com.dao.impl.GenericDaoImpl">
+	<bean id="genericDao" class="com.moven.dao.impl.GenericDaoImpl">
         <property name="sqlSession" ref="sqlSession" />
     </bean> 
 
